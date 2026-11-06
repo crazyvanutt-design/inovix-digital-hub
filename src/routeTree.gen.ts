@@ -10,33 +10,91 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FerramentasRouteImport } from './routes/ferramentas'
+import { Route as IaRouteImport } from './routes/ia'
+import { Route as PersonalizadosRouteImport } from './routes/personalizados'
+import { Route as LojaIndexRouteImport } from './routes/loja.index'
+import { Route as LojaSlugRouteImport } from './routes/loja.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FerramentasRoute = FerramentasRouteImport.update({
+  id: '/ferramentas',
+  path: '/ferramentas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IaRoute = IaRouteImport.update({
+  id: '/ia',
+  path: '/ia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PersonalizadosRoute = PersonalizadosRouteImport.update({
+  id: '/personalizados',
+  path: '/personalizados',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LojaIndexRoute = LojaIndexRouteImport.update({
+  id: '/loja/',
+  path: '/loja/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LojaSlugRoute = LojaSlugRouteImport.update({
+  id: '/loja/$slug',
+  path: '/loja/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ferramentas': typeof FerramentasRoute
+  '/ia': typeof IaRoute
+  '/personalizados': typeof PersonalizadosRoute
+  '/loja/$slug': typeof LojaSlugRoute
+  '/loja/': typeof LojaIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ferramentas': typeof FerramentasRoute
+  '/ia': typeof IaRoute
+  '/personalizados': typeof PersonalizadosRoute
+  '/loja/$slug': typeof LojaSlugRoute
+  '/loja': typeof LojaIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ferramentas': typeof FerramentasRoute
+  '/ia': typeof IaRoute
+  '/personalizados': typeof PersonalizadosRoute
+  '/loja/$slug': typeof LojaSlugRoute
+  '/loja/': typeof LojaIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    '/' | '/ferramentas' | '/ia' | '/personalizados' | '/loja/$slug' | '/loja/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/ferramentas' | '/ia' | '/personalizados' | '/loja/$slug' | '/loja'
+  id:
+    | '__root__'
+    | '/'
+    | '/ferramentas'
+    | '/ia'
+    | '/personalizados'
+    | '/loja/$slug'
+    | '/loja/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FerramentasRoute: typeof FerramentasRoute
+  IaRoute: typeof IaRoute
+  PersonalizadosRoute: typeof PersonalizadosRoute
+  LojaSlugRoute: typeof LojaSlugRoute
+  LojaIndexRoute: typeof LojaIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +106,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ferramentas': {
+      id: '/ferramentas'
+      path: '/ferramentas'
+      fullPath: '/ferramentas'
+      preLoaderRoute: typeof FerramentasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ia': {
+      id: '/ia'
+      path: '/ia'
+      fullPath: '/ia'
+      preLoaderRoute: typeof IaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/personalizados': {
+      id: '/personalizados'
+      path: '/personalizados'
+      fullPath: '/personalizados'
+      preLoaderRoute: typeof PersonalizadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/loja/': {
+      id: '/loja/'
+      path: '/loja'
+      fullPath: '/loja/'
+      preLoaderRoute: typeof LojaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/loja/$slug': {
+      id: '/loja/$slug'
+      path: '/loja/$slug'
+      fullPath: '/loja/$slug'
+      preLoaderRoute: typeof LojaSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FerramentasRoute: FerramentasRoute,
+  IaRoute: IaRoute,
+  PersonalizadosRoute: PersonalizadosRoute,
+  LojaSlugRoute: LojaSlugRoute,
+  LojaIndexRoute: LojaIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
