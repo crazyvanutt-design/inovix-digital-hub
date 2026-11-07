@@ -34,7 +34,7 @@ export function DemoAuthProvider({ children }: { children: ReactNode }) {
   const signIn = (email: string, name?: string) => {
     const u: DemoUser = {
       email,
-      name: name || email.split("@")[0].replace(/[._-]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+      name: name || (email.split("@")[0] ?? email).replace(/[._-]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
       plan: "Pro",
     };
     setUser(u);

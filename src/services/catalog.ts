@@ -13,9 +13,9 @@ export function getCategory(id: ProductCategory) {
 }
 
 export interface ProductQuery {
-  q?: string;
-  categoria?: ProductCategory;
-  ordem?: "relevancia" | "menor-preco" | "maior-preco" | "avaliacao";
+  q?: string | undefined;
+  categoria?: ProductCategory | undefined;
+  ordem?: "relevancia" | "menor-preco" | "maior-preco" | "avaliacao" | undefined;
 }
 
 export function listProducts(query: ProductQuery = {}): Product[] {

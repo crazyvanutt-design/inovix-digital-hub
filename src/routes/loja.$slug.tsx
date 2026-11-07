@@ -74,7 +74,7 @@ function ProductPage() {
       </p>
 
       <div className="mt-6 grid gap-10 lg:grid-cols-2">
-        <div className="flex flex-col-reverse gap-4 sm:flex-row">
+        <div className="flex flex-col-reverse gap-4 self-start sm:flex-row sm:items-start">
           <div className="flex gap-3 sm:flex-col">
             {views.map((v, i) => (
               <button

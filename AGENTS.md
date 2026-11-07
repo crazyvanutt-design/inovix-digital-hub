@@ -28,3 +28,11 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- Pages read catalog data only through `src/services/*` (never import `src/data/*` mock arrays directly in new routes); why: the services are the seam where demo data gets replaced by database/server-function calls.
+- Domain types live in `src/data/types.ts`; why: keeps the future database schema and the UI aligned on one shape.
+- Cart (`src/lib/cart.tsx`) and sign-in (`src/lib/demo-auth.tsx`) are browser-only demo providers mounted in `__root.tsx`; why: the prototype must work without a backend, and real auth/payments should replace these while keeping the same hook APIs.
+- Global header/footer/cart drawer render in `src/routes/__root.tsx` around `<Outlet />`; why: every page shares the same shell.
+- All colors come from tokens in `src/styles.css` (brand tokens `navy*`, `turquoise*`, `surface`) and button/badge variants; why: one place to adjust the visual identity.

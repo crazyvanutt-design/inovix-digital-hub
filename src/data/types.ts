@@ -74,5 +74,5 @@ export interface Plan {
 export interface CartItem {
   productId: string;
   quantity: number;
-  color?: string;
+  color?: string | undefined;
 }

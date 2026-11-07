@@ -10,15 +10,34 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AprendaRouteImport } from './routes/aprenda'
+import { Route as CarrinhoRouteImport } from './routes/carrinho'
+import { Route as ContaRouteImport } from './routes/conta'
 import { Route as FerramentasRouteImport } from './routes/ferramentas'
 import { Route as IaRouteImport } from './routes/ia'
 import { Route as PersonalizadosRouteImport } from './routes/personalizados'
+import { Route as PlanosRouteImport } from './routes/planos'
 import { Route as LojaIndexRouteImport } from './routes/loja.index'
 import { Route as LojaSlugRouteImport } from './routes/loja.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AprendaRoute = AprendaRouteImport.update({
+  id: '/aprenda',
+  path: '/aprenda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CarrinhoRoute = CarrinhoRouteImport.update({
+  id: '/carrinho',
+  path: '/carrinho',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContaRoute = ContaRouteImport.update({
+  id: '/conta',
+  path: '/conta',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FerramentasRoute = FerramentasRouteImport.update({
@@ -36,6 +55,11 @@ const PersonalizadosRoute = PersonalizadosRouteImport.update({
   path: '/personalizados',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlanosRoute = PlanosRouteImport.update({
+  id: '/planos',
+  path: '/planos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LojaIndexRoute = LojaIndexRouteImport.update({
   id: '/loja/',
   path: '/loja/',
@@ -49,50 +73,89 @@ const LojaSlugRoute = LojaSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/aprenda': typeof AprendaRoute
+  '/carrinho': typeof CarrinhoRoute
+  '/conta': typeof ContaRoute
   '/ferramentas': typeof FerramentasRoute
   '/ia': typeof IaRoute
   '/personalizados': typeof PersonalizadosRoute
+  '/planos': typeof PlanosRoute
   '/loja/$slug': typeof LojaSlugRoute
   '/loja/': typeof LojaIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/aprenda': typeof AprendaRoute
+  '/carrinho': typeof CarrinhoRoute
+  '/conta': typeof ContaRoute
   '/ferramentas': typeof FerramentasRoute
   '/ia': typeof IaRoute
   '/personalizados': typeof PersonalizadosRoute
+  '/planos': typeof PlanosRoute
   '/loja/$slug': typeof LojaSlugRoute
   '/loja': typeof LojaIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/aprenda': typeof AprendaRoute
+  '/carrinho': typeof CarrinhoRoute
+  '/conta': typeof ContaRoute
   '/ferramentas': typeof FerramentasRoute
   '/ia': typeof IaRoute
   '/personalizados': typeof PersonalizadosRoute
+  '/planos': typeof PlanosRoute
   '/loja/$slug': typeof LojaSlugRoute
   '/loja/': typeof LojaIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/ferramentas' | '/ia' | '/personalizados' | '/loja/$slug' | '/loja/'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/ferramentas' | '/ia' | '/personalizados' | '/loja/$slug' | '/loja'
-  id:
-    | '__root__'
     | '/'
+    | '/aprenda'
+    | '/carrinho'
+    | '/conta'
     | '/ferramentas'
     | '/ia'
     | '/personalizados'
+    | '/planos'
+    | '/loja/$slug'
+    | '/loja/'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/aprenda'
+    | '/carrinho'
+    | '/conta'
+    | '/ferramentas'
+    | '/ia'
+    | '/personalizados'
+    | '/planos'
+    | '/loja/$slug'
+    | '/loja'
+  id:
+    | '__root__'
+    | '/'
+    | '/aprenda'
+    | '/carrinho'
+    | '/conta'
+    | '/ferramentas'
+    | '/ia'
+    | '/personalizados'
+    | '/planos'
     | '/loja/$slug'
     | '/loja/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AprendaRoute: typeof AprendaRoute
+  CarrinhoRoute: typeof CarrinhoRoute
+  ContaRoute: typeof ContaRoute
   FerramentasRoute: typeof FerramentasRoute
   IaRoute: typeof IaRoute
   PersonalizadosRoute: typeof PersonalizadosRoute
+  PlanosRoute: typeof PlanosRoute
   LojaSlugRoute: typeof LojaSlugRoute
   LojaIndexRoute: typeof LojaIndexRoute
 }
@@ -104,6 +167,27 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/aprenda': {
+      id: '/aprenda'
+      path: '/aprenda'
+      fullPath: '/aprenda'
+      preLoaderRoute: typeof AprendaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/carrinho': {
+      id: '/carrinho'
+      path: '/carrinho'
+      fullPath: '/carrinho'
+      preLoaderRoute: typeof CarrinhoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conta': {
+      id: '/conta'
+      path: '/conta'
+      fullPath: '/conta'
+      preLoaderRoute: typeof ContaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ferramentas': {
@@ -127,6 +211,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PersonalizadosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/planos': {
+      id: '/planos'
+      path: '/planos'
+      fullPath: '/planos'
+      preLoaderRoute: typeof PlanosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/loja/': {
       id: '/loja/'
       path: '/loja'
@@ -146,9 +237,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AprendaRoute: AprendaRoute,
+  CarrinhoRoute: CarrinhoRoute,
+  ContaRoute: ContaRoute,
   FerramentasRoute: FerramentasRoute,
   IaRoute: IaRoute,
   PersonalizadosRoute: PersonalizadosRoute,
+  PlanosRoute: PlanosRoute,
   LojaSlugRoute: LojaSlugRoute,
   LojaIndexRoute: LojaIndexRoute,
 }
