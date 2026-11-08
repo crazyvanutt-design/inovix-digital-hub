@@ -19,7 +19,7 @@ export const tools: Tool[] = [
   { id: "pdf-converter", name: "Conversor PDF", description: "Converta PDF para Word, Excel, JPG e vice-versa em segundos.", category: "documentos", icon: "FileText", popular: true, uses: "48 mil usos/mês" },
   { id: "pdf-merge", name: "Juntar PDFs", description: "Combine vários arquivos PDF em um único documento organizado.", category: "documentos", icon: "Files", uses: "21 mil usos/mês" },
   { id: "pdf-compress", name: "Comprimir PDF", description: "Reduza o tamanho dos seus PDFs mantendo a qualidade.", category: "documentos", icon: "FileArchive", uses: "17 mil usos/mês" },
-  { id: "image-editor", name: "Converta Imagens ", description: "Converta imagens em SVG, JPG, PNG", category: "imagens", icon: "ImagePlus", popular: true, uses: "36 mil usos/mês" },
+  { id: "image-editor", name: "Converta Imagens ", description: "Converta imagens em SVG, JPG, PNG, WebP", category: "imagens", icon: "ImagePlus", popular: true, uses: "36 mil usos/mês" },
   { id: "bg-remover", name: "Removedor de Fundo", description: "Remova o fundo de fotos automaticamente com IA.", category: "imagens", icon: "Eraser", pro: true, uses: "29 mil usos/mês" },
   { id: "image-compress", name: "Compressor de Imagens", description: "Otimize JPG, PNG e WebP para web sem perder nitidez.", category: "imagens", icon: "Minimize2", uses: "12 mil usos/mês" },
   { id: "calculators", name: "Calculadoras", description: "Porcentagem, juros, regra de três, IMC e muito mais.", category: "calculadoras", icon: "Calculator", popular: true, uses: "52 mil usos/mês" },
