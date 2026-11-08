@@ -28,6 +28,7 @@ export const tools: Tool[] = [
   { id: "ai-image", name: "Gerador de Imagens IA", description: "Transforme ideias em imagens a partir de uma descrição.", category: "ia", icon: "Wand2", pro: true, uses: "19 mil usos/mês" },
   { id: "qr-code", name: "Gerador de QR Code", description: "Crie QR Codes personalizados com cores e logotipo.", category: "utilidades", icon: "QrCode", uses: "14 mil usos/mês" },
   { id: "unit-converter", name: "Conversor de Unidades", description: "Medidas, peso, temperatura, moedas e dados.", category: "utilidades", icon: "ArrowLeftRight", uses: "9 mil usos/mês" },
+  { id: "editor-avancado", name: "Editor Avançado", description: "Recorte, redimensione, ajuste cores e aplique filtros profissionais.", category: "imagens", icon: "ImagePlus", popular: true, uses: "36 mil usos/mês" },
 ];
 
 export const courses: Course[] = [
